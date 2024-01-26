@@ -4,7 +4,6 @@ import { FormInput } from '@/Components/FormInput'
 import { SelecteAirCity } from '@/Components/SelecteAirCity';
 import { Avatar, Button, Card, CardBody, CardFooter, CardHeader, Input, Popover, PopoverContent, PopoverTrigger, Select, SelectItem ,Selection, User} from '@nextui-org/react';
 import React, { useState } from 'react'
-import {animals} from '../../app/Landing/Component/data'
 
 const plan: any[]=[
     {label: 'One Way',value:'0'},

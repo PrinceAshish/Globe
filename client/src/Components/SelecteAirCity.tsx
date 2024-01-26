@@ -2,12 +2,12 @@
 import {Autocomplete, AutocompleteItem, Button} from "@nextui-org/react";
 import { IoSwapHorizontal } from "react-icons/io5";
 import airports from '../Data/airports'
-import {  useState } from "react";
+import { useState } from "react";
 
 
 export function SelecteAirCity(props:any){
-  const [fromCity,setFromCity] = useState('')
-  const [toCity,setToCity] = useState('')
+  const [fromCity,setFromCity] = useState<any>('')
+  const [toCity,setToCity] = useState<any>('')
 
     return(
       <div className="flex justify-between">
