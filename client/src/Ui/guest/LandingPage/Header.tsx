@@ -1,11 +1,15 @@
+'use client'
+
 import React from 'react'
 import { IoAirplaneSharp } from "react-icons/io5";
 import { IoIosBed } from "react-icons/io";
 import {Button} from "@nextui-org/react";
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 
 function LandingNavbar() {
+const router = useRouter()
   return (
     <div className="w-full flex justify-between px-5 pt-5  rounded-lg">
       <div className="flex">
@@ -28,7 +32,7 @@ function LandingNavbar() {
       </div>
       <div className="flex space-x-2">
         <div className="login">
-        <Button variant='light'  className='text-white'>Login</Button> 
+        <Button variant='light'  className='text-white' onClick={()=>router.push('/login')}>Login</Button> 
         </div>
         <div className="signUp">
         <Button className='text-[#112211] bg-white'>Sign up</Button>
