@@ -1,7 +1,7 @@
 'use client'
 
-import { FormCheckbox } from '@/Components/FormCheckbox'
-import { FormInput } from '@/Components/FormInput'
+import { FormCheckbox } from '@/components/FormCheckbox'
+import { FormInput } from '@/components/FormInput'
 import { Button, Divider } from '@nextui-org/react'
 import React, { useState } from 'react'
 

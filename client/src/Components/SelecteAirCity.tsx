@@ -1,7 +1,7 @@
 'use client'
 import {Autocomplete, AutocompleteItem, Button} from "@nextui-org/react";
 import { IoSwapHorizontal } from "react-icons/io5";
-import airports from '../Data/airports'
+import airports from '../data/airports'
 import { useState } from "react";
 
 

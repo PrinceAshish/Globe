@@ -3,8 +3,7 @@ import '../globals.css'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import { Providers } from '@/utills/providers'
-import AuthLayout from '@/Ui/Layout/AuthLayout'
-
+import AuthLayout from '@/ui/Layout/AuthLayout'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 

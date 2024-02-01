@@ -1,6 +1,6 @@
 'use client'
 
-import SwiperComponent from '@/Components/SwiperComponent'
+import SwiperComponent from '@/components/SwiperComponent'
 import React from 'react'
 import Image from 'next/image'
 

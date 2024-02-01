@@ -1,7 +1,7 @@
 'use client'
-import { FormDate } from '@/Components/FormDate';
-import { FormInput } from '@/Components/FormInput'
-import { SelecteAirCity } from '@/Components/SelecteAirCity';
+import { FormDate } from '@/components/FormDate';
+import { FormInput } from '@/components/FormInput'
+import { SelecteAirCity } from '@/components/SelecteAirCity';
 import { Avatar, Button, Card, CardBody, CardFooter, CardHeader, Input, Popover, PopoverContent, PopoverTrigger, Select, SelectItem ,Selection, User} from '@nextui-org/react';
 import React, { useState } from 'react'
 
