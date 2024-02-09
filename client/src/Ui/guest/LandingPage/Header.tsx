@@ -35,7 +35,7 @@ const router = useRouter()
         <Button variant='light'  className='text-white' onClick={()=>router.push('/login')}>Login</Button> 
         </div>
         <div className="signUp">
-        <Button className='text-[#112211] bg-white'>Sign up</Button>
+        <Button className='text-[#112211] bg-white'  onClick={()=>router.push('/register')}>Sign up</Button>
         </div>
       </div>
     </div>

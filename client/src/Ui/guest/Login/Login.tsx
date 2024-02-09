@@ -2,7 +2,9 @@
 
 import { FormCheckbox } from '@/components/FormCheckbox'
 import { FormInput } from '@/components/FormInput'
+import AuthLayout from '@/ui/Layout/AuthLayout'
 import { Button, Divider } from '@nextui-org/react'
+import Link from 'next/link'
 import React, { useState } from 'react'
 
 const initialState = {
@@ -27,7 +29,7 @@ export default function Login() {
     }
 
     return (
-        <>
+        <AuthLayout >
             <div className="mt-8">
                 <h2 className='text-5xl text-color font-bold  '>Login</h2>
                 <p className='text-base text-color mt-4'>Login to access your Golobe account</p>
@@ -63,13 +65,13 @@ export default function Login() {
             </div>
             <div className='text-center'>
                 <Button color='primary' className='w-full rounded-md text-color font-semibold mb-4'>Login</Button>
-                <span className='text-color font-medium'>Don’t have an account? <span className='text-[#FF8682] font-semibold hover:underline cursor-pointer'> Sign up </span></span>
+                <span className='text-color font-medium'>Don’t have an account? <Link href={'/register'} className='text-[#FF8682] font-semibold hover:underline cursor-pointer'>Register</Link></span>
             </div>
             <div className='grid grid-cols-3 items-center text-center mt-10'>
                 <Divider className="" />
                 <span className='text-color '>Or login with</span>
                 <Divider className="" />
             </div>
-        </>
+        </AuthLayout>
     )
 }

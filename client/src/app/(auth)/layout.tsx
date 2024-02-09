@@ -21,9 +21,7 @@ export default function LoginLayout({
     <html lang="en">
       <body className={`${montserrat.className} body-color`}>
         <Providers>
-          <AuthLayout>
             {children}
-          </AuthLayout>
         </Providers>
       </body>
     </html>
