@@ -1,7 +1,7 @@
 'use client'
 
-import { FormCheckbox } from '@/components/FormCheckbox'
-import { FormInput } from '@/components/FormInput'
+import { FormCheckbox } from '@/components/Form/FormCheckbox'
+import { FormInput } from '@/components/Form/FormInput'
 import AuthLayout from '@/ui/Layout/AuthLayout'
 import { Button, Divider } from '@nextui-org/react'
 import Link from 'next/link'
@@ -59,7 +59,7 @@ export default function Login() {
                             error={errors.rememberMe}
                             title={'Remember me'}
                         />
-                        <span className='text-error hover:underline cursor-pointer'>Forgot Password</span>
+                        <Link href={'/forget-password'} className='text-error hover:underline cursor-pointer'>Forgot Password</Link>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,8 @@
 'use client'
 
-import { FormCheckbox } from '@/components/FormCheckbox'
-import { FormInput } from '@/components/FormInput'
-import { FormInputNumber } from '@/components/FormInputNumber'
+import { FormCheckbox } from '@/components/Form/FormCheckbox'
+import { FormInput } from '@/components/Form/FormInput'
+import { FormInputNumber } from '@/components/Form/FormInputNumber'
 import AuthLayout from '@/ui/Layout/AuthLayout'
 import { Button, Divider } from '@nextui-org/react'
 import Link from 'next/link'
