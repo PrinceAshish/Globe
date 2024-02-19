@@ -9,7 +9,7 @@ export default function UserLayout({ children }: any) {
     <>
       <Navbar />
       <UserCard />
-      <div className='test'>
+      <div >
         {children}
       </div>
       <div className='relative top-20'>
