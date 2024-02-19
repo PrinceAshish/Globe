@@ -10,8 +10,8 @@ export default function User() {
 
     const TabClassName = {
         tabList: "flex justify-between w-full relative rounded-none p-0 bg-white shadow-md ",
-        cursor: "w-full bg-[#8DD3BB] h-1 ",
-        tab: " h-12 font-semibold ",
+        cursor: "w-full bg-[#8DD3BB] h-1",
+        tab: "h-12 font-semibold",
     }
 
     return (
