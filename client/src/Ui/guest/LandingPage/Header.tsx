@@ -6,6 +6,7 @@ import { IoIosBed } from "react-icons/io";
 import {Button} from "@nextui-org/react";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 
 function LandingNavbar() {
@@ -13,14 +14,14 @@ const router = useRouter()
   return (
     <div className="w-full flex justify-between px-5 pt-5  rounded-lg">
       <div className="flex">
-        <div className="flex items-center text-[14px] font-semibold text-white cursor-pointer">
+        <Link href={'/flight'} className="flex items-center text-[14px] font-semibold text-white cursor-pointer">
           <IoAirplaneSharp style={{ color: 'white',marginRight:'3px',fontSize: '18px' }}/>
           Find Flight
-        </div>
-        <div className="flex items-center text-[14px] font-semibold text-white ml-6 cursor-pointer">
+        </Link>
+        <Link href={'/hotel'} className="flex items-center text-[14px] font-semibold text-white ml-6 cursor-pointer">
           <IoIosBed style={{ color: 'white',marginRight:'3px',fontSize: '18px' }}/>
           Find Stays
-        </div>
+        </Link>
       </div>
       <div className="center">
           <Image

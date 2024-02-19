@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
-import '../../globals.css'
+import '../globals.css'
 import UserLayout from '@/ui/Layout/UserLayout'
 import { Providers } from '@/utills/providers'
 
