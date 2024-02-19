@@ -9,14 +9,14 @@ import { Avatar, Divider } from '@nextui-org/react'
 export default function Navbar() {
     return (
         <div className=' flex justify-between shadow px-20 '>
-            <div className='flex gap-5 '>
-                <div className="py-3 border-b-5 border-[#8DD3BB] ">
+            <div className='flex gap-10 '>
+                <div className="grid place-items-center border-b-5 border-[#8DD3BB] ">
                     <Link href={'/'} className='flex text-color text-sm'>
                         <IoAirplaneSharp style={{ color: '#112211', marginRight: '3px', fontSize: '18px' }} />
                         Find Flight
                     </Link>
                 </div>
-                <div className="py-3">
+                <div className="grid place-items-center">
                     <Link href={'/'} className='flex text-color text-sm '>
                         <IoIosBed style={{ color: '#112211', marginRight: '3px', fontSize: '18px' }} />
                         Find Flight

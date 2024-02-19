@@ -5,6 +5,7 @@ import AuthLayout from '@/ui/Layout/AuthLayout'
 import { Button, Divider } from '@nextui-org/react'
 import { FiChevronLeft } from "react-icons/fi";
 import React, { useState } from 'react'
+import Link from 'next/link';
 const initialState = {
     email: '',
     verify_code: '',
@@ -26,10 +27,10 @@ export default function ForgetPassword() {
 
     return (
         <AuthLayout>
-            <div className='flex items-center font-medium gap-1 mt-16 cursor-pointer'>
+            <Link href={'/login'} className='flex items-center font-medium gap-1 mt-16 cursor-pointer'>
                 <FiChevronLeft size={23} />
                 Back to login
-            </div>
+            </Link>
             <h2 className='text-color text-5xl my-4 font-bold'>{isSubmited ? 'Verify code' : 'Forgot your password?'}</h2>
             <p className='text-color '>{isSubmited ? 'An authentication code has been sent to your email.' : 'Don’t worry, happens to all of us. Enter your email below to recover your password'}</p>
             <div className='mt-11'>

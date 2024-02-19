@@ -5,6 +5,7 @@ import { FormInput } from '@/components/Form/FormInput'
 import AuthLayout from '@/ui/Layout/AuthLayout'
 import { Button, Divider } from '@nextui-org/react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
 }
 
 export default function Login() {
+    const router  = useRouter();
     const [formData, setFormdata] = useState(initialState)
     const [errors, setErrors] = useState<any>({})
 
@@ -26,6 +28,9 @@ export default function Login() {
         let value = e.target.checked
         setFormdata((prevState) => ({ ...prevState, rememberMe: value }))
         setErrors((prevState: any) => ({ ...prevState, rememberMe: '' }))
+    }
+    const handleSubmit = ()=>{
+        router.push('/user')
     }
 
     return (
@@ -64,7 +69,7 @@ export default function Login() {
                 </div>
             </div>
             <div className='text-center'>
-                <Button color='primary' className='w-full rounded-md text-color font-semibold mb-4'>Login</Button>
+                <Button color='primary' className='w-full rounded-md text-color font-semibold mb-4' onPress={handleSubmit}>Login</Button>
                 <span className='text-color font-medium'>Don’t have an account? <Link href={'/register'} className='text-[#FF8682] font-semibold hover:underline cursor-pointer'>Register</Link></span>
             </div>
             <div className='grid grid-cols-3 items-center text-center mt-10'>
