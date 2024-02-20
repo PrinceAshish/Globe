@@ -1,10 +1,4 @@
 import User from '@/ui/user/User'
-import React from 'react'
+import auth from '@/utills/IsAuth'
+export default auth(User)
 
-function page() {
-  return (
-    <User />
-  )
-}
-
-export default page

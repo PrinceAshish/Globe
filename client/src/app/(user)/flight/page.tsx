@@ -1,11 +1,3 @@
-import React from 'react'
-
-function page() {
-  return (
-    <div>
-      flight
-    </div>
-  )
-}
-
-export default page
+import User from '@/ui/user/User'
+import auth from '@/utills/IsAuth'
+export default auth(User)
