@@ -13,7 +13,7 @@ export default function ShowFlights() {
   const [selected, setSelected] = React.useState(TAB[0]); 
   console.log(selected)
   return (
-    <div className='w-[73%] h-[280px] bg-white rounded-2xl mx-auto relative bottom-14 left-2 flex flex-col px-8 pt-5'>
+    <div className='w-[73%] h-[280px] bg-white rounded-2xl mx-auto relative bottom-14 left-2 flex flex-col px-8 pt-5 border'>
       {/* header */}
       <div className="">
       <Tabs  classNames={{

@@ -1,3 +1,3 @@
-import User from '@/ui/user/User'
+import Flight from '@/ui/Flight/Flight'
 import auth from '@/utills/IsAuth'
-export default auth(User)
+export default auth(Flight)

@@ -1,11 +1,13 @@
 import {Input} from "@nextui-org/react";
+import { forwardRef } from "react";
 
-export function FormInput(props:any){
-    const {value,onChange,error,className} = props;
+export const FormInput = forwardRef((props:any) => {
+    const {value,onChange,error,className,ref} = props;
     return(
         <Input
         {...props}
         variant="bordered"
+        ref={ref}
         // labelPlacement={'outside'}
         size="md"
         radius="sm"
@@ -13,7 +15,7 @@ export function FormInput(props:any){
         onChange={onChange}
         isInvalid={error ? true: false}
         errorMessage={error}
-        className={`mb-5 ${className}`}
+        className={`mb-5 rounded ${className}`}
         />
     )
-}
+})
