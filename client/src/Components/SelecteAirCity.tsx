@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export function SelecteAirCity(props: any) {
   const {formData, handleChange,setFormData}= props;
-  const {from_city,to_city}  = formData;
+  const {from_city,to_city}  = formData || {};
   
   const handleSwitch = () => {
     

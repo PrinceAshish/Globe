@@ -40,7 +40,7 @@ function FlightBooking() {
     setFormData((prevState) => ({ ...prevState, [name]: value }));
     setErrors((prevState: any) => ({ ...prevState, [name]: '' }));
   }
-  console.log(formData);
+  // console.log(formData);
   const { trip_class, trip_way, start_date, end_date } = formData;
   return (
     <div>
