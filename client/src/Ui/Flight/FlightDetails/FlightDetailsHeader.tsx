@@ -3,10 +3,17 @@
 import { currencyFormater } from '@/utills/commonFunction'
 import { BreadcrumbItem, Breadcrumbs, Button } from '@nextui-org/react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { BiHeart, BiMapPin, BiShare } from 'react-icons/bi'
 
 export default function FlightDetailsHeader() {
+    const router = useRouter()
+
+    const handleClick = () => {
+        router.push('/flight/123/details/booking')
+    }
+
     return (
         <div>
             <div className='mt-12'>
@@ -40,7 +47,7 @@ export default function FlightDetailsHeader() {
                         <Button isIconOnly className="border border-primary bg-white text-black rounded  hover:bg-primary hover:text-white" aria-label="switch" >
                             <BiShare style={{ fontSize: '20px', fontWeight: 'bold' }} />
                         </Button>
-                        <Button className='w-full bg-primary text-color font-semibold rounded'>
+                        <Button className='w-full bg-primary text-color font-semibold rounded' onClick={handleClick}>
                             Book Now
                         </Button>
                     </div>

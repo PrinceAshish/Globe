@@ -38,7 +38,7 @@ export function SelecteAirCity(props: any) {
         </Autocomplete>
       </div>
       <div className="col-span-1 mx-auto">
-        <Button isIconOnly className="bg-[#8DD3BB] text-white mt-2 rounded-full" aria-label="switch" onClick={handleSwitch}>
+        <Button isIconOnly className="bg-[#8DD3BB] text-color font-semibold mt-2 rounded-full" aria-label="switch" onClick={handleSwitch}>
           <IoSwapHorizontal style={{ fontSize: '20px', fontWeight: 'bold' }} />
         </Button>
       </div>

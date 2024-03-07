@@ -1,11 +1,18 @@
+'use client'
+
 import { currencyFormater } from '@/utills/commonFunction'
 import { Button } from '@nextui-org/react'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { FaWifi } from 'react-icons/fa'
 import { IoAirplane, IoFastFood, IoStopwatch } from 'react-icons/io5'
 import { MdAirlineSeatReclineNormal } from 'react-icons/md'
 
 export default function FlightBookingDetails() {
+    const router = useRouter()
+    const handleClick = () => {
+        router.push('/flight/ticket/123/download')
+    }
     return (
         <div className='shadow-md px-6 py-8 '>
             <div className='flex justify-between items-center'>
@@ -50,7 +57,7 @@ export default function FlightBookingDetails() {
                 <div><h4 className='text-color font-semibold text-2xl'>12:00 pm <span className='ml-3 text-base font-normal'>Newark(EWR)</span></h4></div>
             </div>
             <div className='flex justify-end mt-5'>
-                <Button className='bg-primary rounded text-color font-semibold'>
+                <Button className='bg-primary rounded text-color font-semibold' onClick={handleClick}>
                     Confirm and Pay
                 </Button>
             </div>

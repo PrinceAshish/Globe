@@ -1,9 +1,15 @@
+'use client'
 import { currencyFormater } from '@/utills/commonFunction'
 import { Button, Divider } from '@nextui-org/react'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { BiHeart } from 'react-icons/bi'
 
 export default function FlightResult() {
+  const router = useRouter()
+  const handleClick = ()=>{
+    router.push('/flight/123/details')
+  }
   return (
     <div className='border-l-2 col-span-4 pl-5'>
       <h2 className='text-color font-semibold mb-5'>Showing 4 of <span className='text-[#FF8682]'>257 places</span></h2>
@@ -42,7 +48,7 @@ export default function FlightResult() {
             <Button isIconOnly className="border border-primary bg-white text-black rounded  hover:bg-primary hover:text-white" aria-label="switch" >
               <BiHeart style={{ fontSize: '20px', fontWeight: 'bold' }} />
             </Button>
-            <Button className='w-full bg-primary text-color font-semibold rounded-md'>
+            <Button className='w-full bg-primary text-color font-semibold rounded-md' onClick={handleClick}>
               View Deals
             </Button>
           </div>

@@ -3,6 +3,7 @@ import { FormDate } from '@/components/Form/FormDate';
 import { FormInput } from '@/components/Form/FormInput'
 import { SelecteAirCity } from '@/components/SelecteAirCity';
 import { Button, Select, SelectItem, Selection } from '@nextui-org/react';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { BiSearch } from 'react-icons/bi';
 
@@ -30,7 +31,7 @@ const intialState = {
 function FlightBooking() {
   const [formData, setFormData] = React.useState(intialState);
   const [errors, setErrors] = React.useState<any>({});
-
+  const router = useRouter()
 
   const handleChange = (value: any, name: any) => {
     console.log(name)
@@ -39,6 +40,10 @@ function FlightBooking() {
     value === null ? _value = '' : false
     setFormData((prevState) => ({ ...prevState, [name]: value }));
     setErrors((prevState: any) => ({ ...prevState, [name]: '' }));
+  }
+
+  const handleClick = ()=>{
+    router.push('/flight/search/123')
   }
   // console.log(formData);
   const { trip_class, trip_way, start_date, end_date } = formData;
@@ -94,8 +99,8 @@ function FlightBooking() {
             onChange={handleChange}
           /> : false}
         </div>
-        <Button className="bg-[#8DD3BB] text-white mt-2 rounded" aria-label="switch">
-          Serach
+        <Button className="bg-[#8DD3BB] text-color font-semibold mt-2 rounded" aria-label="switch" onClick={handleClick}>
+          Search
           <BiSearch style={{ fontSize: '20px', fontWeight: 'bold' }} />
         </Button>
       </div>
