@@ -94,8 +94,8 @@ export default function FilterForm() {
           <Accordion defaultExpandedKeys={["1"]}>
             <AccordionItem key="1" aria-label="Accordion 1" title="Rating">
               <div className='flex gap-x-3'>
-                {data.map(d => (
-                  <div className={`border-primary border w-10 h-8 grid place-items-center font-semibold rounded cursor-pointer ${formData.rating === d ? 'text-white bg-primary' : 'text-color'}`} onClick={() => handleChange(d,'rating')}>
+                {data.map((d,index) => (
+                  <div key={index} className={`border-primary border w-10 h-8 grid place-items-center font-semibold rounded cursor-pointer ${formData.rating === d ? 'text-white bg-primary' : 'text-color'}`} onClick={() => handleChange(d,'rating')}>
                     {d}
                   </div>
                 ))}
@@ -110,7 +110,7 @@ export default function FilterForm() {
             <AccordionItem key="1" aria-label="Accordion 1" title="Airlines">
               <div className='flex flex-col gap-y-2'>
                 {formData.AirLines.map((data, index) => (
-                  <Checkbox isSelected={data.ischecked} onValueChange={(e) => handleAirLinesChange(e, index)}>
+                  <Checkbox key={index} isSelected={data.ischecked} onValueChange={(e) => handleAirLinesChange(e, index)}>
                     {data.label}
                   </Checkbox>
                 ))}
@@ -125,7 +125,7 @@ export default function FilterForm() {
             <AccordionItem key="1" aria-label="Accordion 1" title="Sort By">
               <div className='flex flex-col gap-y-2'>
                 {formData.sort_by.map((data, index) => (
-                  <Checkbox isSelected={data.ischecked} onValueChange={(e) => handleSortByChange(e, index)}>
+                  <Checkbox key={index} isSelected={data.ischecked} onValueChange={(e) => handleSortByChange(e, index)}>
                     {data.label}
                   </Checkbox>
                 ))}

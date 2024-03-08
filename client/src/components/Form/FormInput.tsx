@@ -1,7 +1,6 @@
 import {Input} from "@nextui-org/react";
-import { forwardRef } from "react";
 
-export const FormInput = forwardRef((props:any) => {
+export const FormInput = (props:any) => {
     const {value,onChange,error,className,ref} = props;
     return(
         <Input
@@ -18,4 +17,4 @@ export const FormInput = forwardRef((props:any) => {
         className={`mb-5 rounded ${className}`}
         />
     )
-})
+}

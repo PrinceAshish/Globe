@@ -8,8 +8,8 @@ const Flight = () => {
   let data = [1, 2, 3]
   return (
     <div>
-      {data.map((flight:any) => (
-        <Card className="rounded-sm shadow-md mb-3">
+      {data.map((flight,index) => (
+        <Card key={index} className="rounded-sm shadow-md mb-3">
           <CardBody>
             <EachFlight />
           </CardBody>
@@ -22,8 +22,8 @@ const Stays = () => {
   let data = [1, 2, 3]
   return (
     <div>
-      {data.map((flight:any) => (
-        <Card className="rounded-sm shadow-md mb-3">
+      {data.map((flight,index) => (
+        <Card key={index} className="rounded-sm shadow-md mb-3">
           <CardBody>
             <EachHotel />
           </CardBody>

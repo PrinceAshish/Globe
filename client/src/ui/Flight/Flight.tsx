@@ -16,7 +16,7 @@ function Flight() {
                     <div className='w-full h-20'>
                         <div className='flex justify-between items-center'>
                             <div>
-                                <h3 className='text-color text-3xl font-semibold mb-3'>Let's go places together</h3>
+                                <h3 className='text-color text-3xl font-semibold mb-3'>Let&apos;s go places together</h3>
                                 <h5 className='text-color text-base '>Discover the latest offers and news and start planning your next trip with us.</h5>
                             </div>
                             <Button variant='bordered' className='border-[#8DD3BB] rounded'>See All</Button>
