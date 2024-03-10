@@ -1,20 +1,6 @@
-import { Response } from 'express';
-
-enum HttpStatusCode {
-  OK = 200,
-  Created = 201,
-  InvalidRequest= 400,
-  NotFound = 404,
-  InternalServerError= 500,
-  ValidationError= 422,
-  // Add more as needed
-}
-
-interface ApiResponse {
-  status: boolean;
-  message: string;
-  data: any;
-}
+import { Response } from 'express'
+import { HttpStatusCode } from '../utils/enum'
+import { ApiResponse } from '../utils/types';
 
  const sendApiResponse = (
   res: Response,
