@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 const FindUserByEmail = async (req: Request, res: Response) => {
   const { email } = req.body;
   if (!email) {
-    return sendApiResponse(res, 404, false, " Email is required", []);
+    return sendApiResponse(res, 200, false, " Email is required", []);
   }
   const user = await prisma.user.findUnique({
     where: { email: email },
@@ -15,14 +15,14 @@ const FindUserByEmail = async (req: Request, res: Response) => {
   if(user){
     sendApiResponse(res, 200, true, "User exist on this email", user);
   }else{
-    sendApiResponse(res, 404, false, "User dose not exist on this email", user);
+    sendApiResponse(res, 200, false, "User dose not exist on this email", user);
   }
 };
 
 const FindUserByMobileNumbaer = async (req: Request, res: Response) => {
   const { mobile_number } = req.body;
   if (!mobile_number) {
-    return sendApiResponse(res, 404, false, " Mobile Number is required", []);
+    return sendApiResponse(res, 200, false, " Mobile Number is required", []);
   }
   const user = await prisma.user.findUnique({
     where: { mobile_number: mobile_number },
@@ -30,13 +30,13 @@ const FindUserByMobileNumbaer = async (req: Request, res: Response) => {
   if(user){
     sendApiResponse(res, 200, true, "User exist on this Mobile Number", user);
   }else{
-    sendApiResponse(res, 404, false, "User dose not exist on this Mobile ", user);
+    sendApiResponse(res, 200, false, "User dose not exist on this Mobile ", user);
   }
 };
 const FindUserById = async (req: Request, res: Response) => {
   const { id } = req.body;
   if (!id) {
-    return sendApiResponse(res, 404, false, " Id is required", []);
+    return sendApiResponse(res, 200, false, " Id is required", []);
   }
   const user = await prisma.user.findUnique({
     where: { id: id },
@@ -44,7 +44,7 @@ const FindUserById = async (req: Request, res: Response) => {
   if(user){
     sendApiResponse(res, 200, true, "User exist on this id", user);
   }else{
-    sendApiResponse(res, 404, false, "User dose exist on this id  ", user);
+    sendApiResponse(res, 200, false, "User dose exist on this id  ", user);
   }
 };
 export const FindByControler = {

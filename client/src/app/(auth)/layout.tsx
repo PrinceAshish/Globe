@@ -4,6 +4,8 @@ import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import { Providers } from '@/utills/providers'
 import AuthLayout from '@/ui/Layout/AuthLayout'
+import { ToastContainer } from 'react-toastify'
+import ApiLoading from '@/components/ApiLoading/ApiLoading'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -21,8 +23,10 @@ export default function LoginLayout({
     <html lang="en">
       <body className={`${montserrat.className} body-color`}>
         <Providers>
-            {children}
+          {children}
+          <ApiLoading />
         </Providers>
+        <ToastContainer />
       </body>
     </html>
   )

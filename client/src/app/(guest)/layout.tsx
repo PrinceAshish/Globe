@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import '../globals.css'
 import { Providers } from '../../utills/providers'
+import { ToastContainer } from 'react-toastify'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         <Providers>
           {children}
         </Providers>
+        <ToastContainer />
       </body>
     </html>
   )

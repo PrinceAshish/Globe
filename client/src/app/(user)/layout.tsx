@@ -3,6 +3,7 @@ import { Montserrat } from 'next/font/google'
 import '../globals.css'
 import UserLayout from '@/ui/Layout/UserLayout'
 import { Providers } from '@/utills/providers'
+import { ToastContainer } from 'react-toastify'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -24,6 +25,7 @@ export default function AccountLayout({
                         {children}
                     </UserLayout>
                 </Providers>
+                <ToastContainer />
             </body>
         </html>
     )

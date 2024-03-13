@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 
 const getUser = async (req: Request, res: Response) => {
   const user = await prisma.user.findMany();
-  sendApiResponse(res, 404, true, 'User Fetch SuccessFully', user);
+  sendApiResponse(res, 200, true, 'User Fetch SuccessFully', user);
 };
 
 const createUser = async (req: Request, res: Response) => {
@@ -24,10 +24,10 @@ const createUser = async (req: Request, res: Response) => {
   const missingField = requiredFields.find((field) => !req.body[field]);
 
   if (missingField) {
-    return sendApiResponse(res, 404, false, `${missingField} is required`, []);
+    return sendApiResponse(res, 200, false, `${missingField} is required`, []);
   }
   if(await isUserExist("email",email)){
-    sendApiResponse(res, 404, false, 'User exists with this email', []);
+    sendApiResponse(res, 200, false, 'User exists with this email', []);
   }
 
   let newPassword =  await ConverthashPassword(password)
@@ -57,13 +57,13 @@ const editUser = async (req: Request, res: Response) => {
   const missingField = requiredFields.find((field) => !req.body[field]);
 
   if (missingField) {
-    return sendApiResponse(res, 404, false, `${missingField} is required`, []);
+    return sendApiResponse(res, 200, false, `${missingField} is required`, []);
   }
   if(await isUserExist("id",id)){
-    sendApiResponse(res, 404, false, 'User not found with id', []);
+    sendApiResponse(res, 200, false, 'User not found with id', []);
   }
   if(await isUserExist("email",email)){
-    sendApiResponse(res, 404, false, 'User exists with this email', []);
+    sendApiResponse(res, 200, false, 'User exists with this email', []);
   }
   let newPassword =  await ConverthashPassword(password)
   const user = await prisma.user.update({
@@ -84,10 +84,10 @@ const editUser = async (req: Request, res: Response) => {
 const deleteUser = async (req: Request, res: Response) => {
   const { id } = req.params;
   if(!id){
-    sendApiResponse(res, 404, false, 'id is Required', []);
+    sendApiResponse(res, 200, false, 'id is Required', []);
   }
   if(await isUserExist("id",id)){
-    sendApiResponse(res, 404, false, 'User not found with id', []);
+    sendApiResponse(res, 200, false, 'User not found with id', []);
   }
   const user = await prisma.user.delete({
     where: {
