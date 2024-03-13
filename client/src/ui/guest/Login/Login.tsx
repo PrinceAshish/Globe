@@ -48,7 +48,12 @@ export default function Login() {
                 email : formData.email,
                 password : formData.password
             }
-            LoginUser(dataToSend);
+            LoginUser(dataToSend,{
+                success: ()=>{
+                    router.push('/user')
+                },
+                error: ()=>{}
+            });
         }
     }
 

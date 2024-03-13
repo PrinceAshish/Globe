@@ -22,7 +22,7 @@ export default function LoginLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} body-color`}>
-        <Providers>
+        <Providers >
           {children}
           <ApiLoading />
         </Providers>

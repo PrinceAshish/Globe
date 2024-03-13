@@ -26,7 +26,7 @@ export const UseLoginStore = create((set) => ({
             let responseData = handleResponse(response);
             if (responseData) {
                 if (responseData.status == true) {
-                    set((state: any) => ({ ...state, UserExist: responseData.data }));
+                    set((state: any) => ({ ...state, isLogin: false }));
                     callback?.success();
                 } else {
                     callback?.error();
