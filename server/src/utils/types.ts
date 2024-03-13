@@ -2,7 +2,9 @@ import { Request } from "express";
 
 export type CustomRequest = Request & {
   user?: String;
-  session?: string;
+  session?: {
+    userId : String
+  };
 };
 export type TokenType = {
   id?: string;

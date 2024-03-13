@@ -7,6 +7,7 @@ import { Button, Divider } from '@nextui-org/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
+import { UseLoginStore } from './UseLoginStore'
 
 const initialState = {
     email: '',
@@ -15,7 +16,8 @@ const initialState = {
 }
 
 export default function Login() {
-    const router  = useRouter();
+    const LoginUser = UseLoginStore((state:any)=>state.LoginUser)
+    const router = useRouter();
     const [formData, setFormdata] = useState(initialState)
     const [errors, setErrors] = useState<any>({})
 
@@ -29,8 +31,25 @@ export default function Login() {
         setFormdata((prevState) => ({ ...prevState, rememberMe: value }))
         setErrors((prevState: any) => ({ ...prevState, rememberMe: '' }))
     }
-    const handleSubmit = ()=>{
-        router.push('/user')
+    const isValid = () => {
+        const errors: any = {};
+        if (!formData.email) {
+            errors.email = 'Email is required';
+        }
+        if (!formData.password) {
+            errors.password = 'Password is required';
+        }
+        setErrors(errors);
+        return Object.keys(errors).length === 0;
+    }
+    const handleSubmit = () => {
+        if(isValid()){
+            let dataToSend = {
+                email : formData.email,
+                password : formData.password
+            }
+            LoginUser(dataToSend);
+        }
     }
 
     return (
