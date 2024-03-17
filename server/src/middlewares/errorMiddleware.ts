@@ -10,7 +10,7 @@ const errorMiddleware = (
 ) => {
   if (!err.message) err.message = "Oh No, Something Went Wrong! ashish";
   if (err instanceof Prisma.PrismaClientKnownRequestError) {
-    return sendApiResponse(res, 400, false, "Invalid request ashish", []);
+    return sendApiResponse(res, 400, false, "Invalid request ashish", [err]);
   } else if (err instanceof Prisma.PrismaClientValidationError) {
     return sendApiResponse(res, 422, false, "Validation error ashish", []);
   } else {

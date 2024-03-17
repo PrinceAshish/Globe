@@ -28,7 +28,7 @@ export const configureMiddleware = (app: express.Application) => {
     app.use(cookieParser());
     
     app.use(globalVariablesMiddleware as any)
-    app.use(Allroutes);
+    app.use("/api",Allroutes);
     app.use(errorMiddleware)
   
   };

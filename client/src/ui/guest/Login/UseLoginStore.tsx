@@ -7,7 +7,7 @@ import SecureStorage from "@/utills/SecureStorage";
 
 export const UseLoginStore = create(
     persist((set) => ({
-        customerData: [],
+        token: [],
         isLogin: false,
         LoginUser: (data: any, callback: any) => {
             apiCall('post', '/login-user', data).then((response) => {
@@ -15,7 +15,7 @@ export const UseLoginStore = create(
                 if (responseData) {
                     if (responseData.status == true) {
                         set((state: any) => ({ ...state, isLogin: true }));
-                        set((state: any) => ({ ...state, customerData: responseData.data.user }));
+                        set((state: any) => ({ ...state, customerData: responseData.data.token }));
                         toast({ message: responseData.message, status: "success" });
                         callback?.success();
                     } else {
