@@ -1,17 +1,24 @@
 import { Card, CardBody, Divider, Tab, Tabs } from '@nextui-org/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { IoIosBed } from 'react-icons/io'
 import { IoAirplaneSharp } from 'react-icons/io5'
 import { EachFlight, EachHotel } from '../component'
+import { useTicketStore } from '@/ui/Flight/Ticket/useTicketStore'
 
 const Flight = () => {
+  const getTicket = useTicketStore((state: any) => state.getTicket)
+  const tickets = useTicketStore((state: any) => state.tickets)
+
+  useEffect(()=>{
+    getTicket()
+  },[])
   let data = [1, 2, 3]
   return (
     <div>
       {data.map((flight,index) => (
         <Card key={index} className="rounded-sm shadow-md mb-3">
           <CardBody>
-            <EachFlight />
+            <EachFlight tickets={tickets} />
           </CardBody>
         </Card>
       ))}

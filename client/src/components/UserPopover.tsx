@@ -1,4 +1,5 @@
 'use client'
+import { UseLoginStore } from '@/ui/guest/Login/UseLoginStore';
 import { Avatar, Button, Card, CardBody, CardFooter, CardHeader, Divider, Popover, PopoverContent, PopoverTrigger, User } from '@nextui-org/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
@@ -19,17 +20,21 @@ const EachData = ({ title, icon }: any) => {
     )
 }
 export default function UserPopover() {
+    const customerData = UseLoginStore((state: any) => state.customerData)
     const pathname = usePathname();
+    console.log(customerData)
     return (
         <Popover placement="bottom-start">
             <PopoverTrigger>
                 <User
                     as="button"
-                    name="Ashish"
+                    name={customerData.first_name || 'User'}
                     // description="Product Designer"
                     className="transition-transform"
                     avatarProps={{
-                        src: "https://i.pravatar.cc/150?u=a04258114e29026702d"
+                        // name: customerData.first_name.toUpperCase() || ''
+                        className: 'w-5 h-5',
+                        src: "https://th.bing.com/th/id/OIP.b61rHwfyvldBI6kQRI78jgHaHa?w=266&h=200&c=7&r=0&o=5&dpr=1.3&pid=1.7",
                     }}
                 />
             </PopoverTrigger>

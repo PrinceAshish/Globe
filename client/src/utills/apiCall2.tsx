@@ -1,10 +1,11 @@
+
 import axios from "axios";
 import { useApiLoadingStore } from "./useApiLoadingStore";
 
 export const apiCall = async (method: any, endpoint: any, data = null, headers = {}) => {
     const { showLoader, hideLoader }: any = useApiLoadingStore.getState();
     const instance = axios.create({
-        baseURL: 'http://localhost:8080/api',
+        baseURL: 'http://localhost:8000/api',
         timeout: 10000,
     })
 

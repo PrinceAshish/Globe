@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { UseLoginStore } from './UseLoginStore'
+import { UseCustomerStore } from '@/ui/user/UseCustomerStore'
 
 const initialState = {
     email: '',
@@ -16,7 +17,8 @@ const initialState = {
 }
 
 export default function Login() {
-    const LoginUser = UseLoginStore((state:any)=>state.LoginUser)
+    const LoginUser = UseLoginStore((state: any) => state.LoginUser)
+    const FindCustomer = UseCustomerStore((state: any) => state.FindCustomer)
     const router = useRouter();
     const [formData, setFormdata] = useState(initialState)
     const [errors, setErrors] = useState<any>({})
@@ -43,19 +45,22 @@ export default function Login() {
         return Object.keys(errors).length === 0;
     }
     const handleSubmit = () => {
-        if(isValid()){
+        if (isValid()) {
             let dataToSend = {
-                email : formData.email,
-                password : formData.password
+                email: formData.email,
+                password: formData.password
             }
-            LoginUser(dataToSend,{
-                success: ()=>{
+            LoginUser(dataToSend, {
+                success: () => {
+                    FindCustomer({email:formData.email})
                     router.push('/user')
                 },
-                error: ()=>{}
+                error: () => { }
             });
         }
     }
+    const customerData = UseLoginStore((state: any) => state.customerData)
+    console.log(customerData)
 
     return (
         <AuthLayout >

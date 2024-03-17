@@ -1,10 +1,13 @@
+'use client'
+import { useLandingPage } from '@/ui/guest/LandingPage/useLandingPage'
 import React from 'react'
 import { BiStopwatch } from 'react-icons/bi'
 
 export default function FlightPolicies() {
+  const IndividualFlight = useLandingPage((state: any) => state.IndividualFlight)
   return (
     <div className='bg-[#8DD3BB99] p-4 rounded-2xl mt-6'>
-      <h2 className='text-color font-bold text-2xl'>Emirates Airlines Policies</h2>
+      <h2 className='text-color font-bold text-2xl'>{IndividualFlight[0].flightName} Airlines Policies</h2>
       <div className='w-full grid grid-cols-2 mt-5'>
         <h3 className='flex gap-x-3 text-color text-sm items-center'>
             <BiStopwatch/>

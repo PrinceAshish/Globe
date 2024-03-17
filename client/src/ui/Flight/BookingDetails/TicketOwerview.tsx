@@ -1,3 +1,5 @@
+'use client'
+import { useLandingPage } from '@/ui/guest/LandingPage/useLandingPage'
 import { currencyFormater } from '@/utills/commonFunction'
 import { Button, Divider } from '@nextui-org/react'
 import React from 'react'
@@ -11,6 +13,23 @@ const EachPrice = ({ title, value }: any) => {
     )
 }
 export default function TicketOwerview() {
+    const IndividualFlight = useLandingPage((state: any) => state.IndividualFlight)
+    const SerachFlightData = useLandingPage((state: any) => state.SerachFlightData)
+    let trip_class = 'Economy'
+    switch (SerachFlightData.trip_class) {
+        case '0':
+            trip_class = 'Economy';
+            break;
+        case '1':
+            trip_class = 'Business ';
+        case '2':
+            trip_class = 'First';
+            break;
+        default:
+            trip_class = 'Economy';
+            break;
+    }
+    console.log(SerachFlightData)
     return (
         <div className='w-full border p-6 shadow-md'>
             <div className='flex'>
@@ -20,11 +39,11 @@ export default function TicketOwerview() {
                     className='w-32 h-32 rounded-xl '
                 />
                 <div className='ml-5'>
-                    <h4 className='text-color text-sm'>Economy </h4>
-                    <h3 className='text-color text-lg font-semibold my-2'>Emirates A380 Airbus</h3>
+                    <h4 className='text-color text-sm'>{trip_class} </h4>
+                    <h3 className='text-color text-lg font-semibold my-2'>{IndividualFlight[0].flightName} {IndividualFlight[0].flightNumber}</h3>
                     <div className='flex items-center'>
                         <div className='grid place-items-center w-10 h-8 border-primary border rounded-md'>
-                            4.2
+                        {IndividualFlight[0].flightReview} 
                         </div>
                         <span className='ml-3 text-color text-xs font-bold'>Very Good <span className='font-medium'>54 reviews</span></span>
                     </div>
@@ -35,12 +54,12 @@ export default function TicketOwerview() {
             <Divider className='my-3' />
             <div>
                 <h4 className='text-color font-bold tezt-base mb-4'>Price Details</h4>
-                <EachPrice title={'Base Fare'} value={5100} />
+                <EachPrice title={'Base Fare'} value={Number(IndividualFlight[0].flightPrice) -900} />
                 <EachPrice title={'Discount'} value={100} />
                 <EachPrice title={'Taxes'} value={500} />
                 <EachPrice title={'Service Fee'} value={499} />
                 <Divider className='mb-3' />
-                <EachPrice title={'Total'} value={5999} />
+                <EachPrice title={'Total'} value={IndividualFlight[0].flightPrice} />
             </div>
         </div>
     )

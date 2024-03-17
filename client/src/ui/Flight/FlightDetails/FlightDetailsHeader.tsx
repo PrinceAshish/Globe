@@ -6,8 +6,14 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { BiHeart, BiMapPin, BiShare } from 'react-icons/bi'
+import Breadcrumb from '../Breadcrumb'
+import { useLandingPage } from '@/ui/guest/LandingPage/useLandingPage'
 
 export default function FlightDetailsHeader() {
+    const IndividualFlight = useLandingPage((state: any) => state.IndividualFlight)
+    console.log(IndividualFlight)
+    console.log(IndividualFlight.flightPrice)
+    
     const router = useRouter()
 
     const handleClick = () => {
@@ -17,29 +23,26 @@ export default function FlightDetailsHeader() {
     return (
         <div>
             <div className='mt-12'>
-                <Breadcrumbs>
-                    <BreadcrumbItem color='danger' className=' font-semibold' >Delhi</BreadcrumbItem>
-                    <BreadcrumbItem className='text-black font-semibold'>Mumbai</BreadcrumbItem>
-                </Breadcrumbs>
+                <Breadcrumb />
             </div>
             <div className='flex justify-between items-end mt-8'>
                 {/* 1st col */}
                 <div className='flex flex-col gap-y-3'>
-                    <h2 className='font-bold text-2xl text-color'>Emirates A380 Airbus</h2>
+                    <h2 className='font-bold text-2xl text-color'>{IndividualFlight[0].flightName} {IndividualFlight[0].flightNumber}</h2>
                     <h4 className='flex gap-x-2 items-center text-color text-sm font-medium'>
                         <BiMapPin />
-                        Gümüssuyu Mah. Inönü Cad. No:8, Istanbul 34437
+                        departure from {IndividualFlight[0].flightStartFrom} Airport
                     </h4>
                     <div className='flex items-center space-x-2'>
                         <div className='grid place-items-center w-10 h-8 border-primary border rounded-md'>
-                            4.2
+                            {IndividualFlight[0].flightReview}
                         </div>
                         <span className='text-color text-xs font-bold'>Very Good <span className='font-medium'>54 reviews</span></span>
                     </div>
                 </div>
                 {/* 2nd col */}
                 <div className='flex flex-col items-end gap-2'>
-                    <h3 className='text-error font-bold text-3xl '>{currencyFormater(5999)}</h3>
+                    <h3 className='text-error font-bold text-3xl '>{currencyFormater(IndividualFlight[0].flightPrice)}</h3>
                     <div className='flex gap-x-4'>
                         <Button isIconOnly className="border border-primary bg-white text-black rounded  hover:bg-primary hover:text-white" aria-label="switch" >
                             <BiHeart style={{ fontSize: '20px', fontWeight: 'bold' }} />

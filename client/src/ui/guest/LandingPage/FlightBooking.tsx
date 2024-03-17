@@ -4,8 +4,10 @@ import { FormInput } from '@/components/Form/FormInput'
 import { SelecteAirCity } from '@/components/SelecteAirCity';
 import { Button, Select, SelectItem, Selection } from '@nextui-org/react';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiSearch } from 'react-icons/bi';
+import { useLandingPage } from './useLandingPage';
+import SearchFlight from '@/ui/Flight/SearchFlight/SearchFlight';
 
 const plan: any[] = [
   { label: 'One Way', value: '0' },
@@ -29,10 +31,22 @@ const intialState = {
 
 
 function FlightBooking() {
+  const SerachFlightData = useLandingPage((state:any)=>state.SerachFlightData)
+  const saveSearchFlight = useLandingPage((state:any)=>state.saveSearchFlight)
   const [formData, setFormData] = React.useState(intialState);
   const [errors, setErrors] = React.useState<any>({});
   const router = useRouter()
 
+  useEffect(()=>{
+    if(Object.keys(SerachFlightData).length){
+      console.log('hihihihih')
+      handleEdit()
+    }
+  },[SerachFlightData])
+
+  const handleEdit = ()=>{
+    setFormData(SerachFlightData);
+  }
   const handleChange = (value: any, name: any) => {
     console.log(name)
     console.log(value)
@@ -43,9 +57,10 @@ function FlightBooking() {
   }
 
   const handleClick = ()=>{
+    saveSearchFlight(formData)
     router.push('/flight/search/123')
   }
-  // console.log(formData);
+  console.log(SerachFlightData);
   const { trip_class, trip_way, start_date, end_date } = formData;
   return (
     <div>

@@ -1,7 +1,11 @@
+import { useLandingPage } from '@/ui/guest/LandingPage/useLandingPage';
+import { UseLoginStore } from '@/ui/guest/Login/UseLoginStore';
+import { convertTo12HourFormat } from '@/utills/commonFunction';
 import { User } from '@nextui-org/react'
 import Image from 'next/image';
 import React from 'react'
 import { IoAirplane } from 'react-icons/io5'
+import myImage from 'F:/image.jpg';
 
 const EachDetails = ({ title, value, icons }: any) => {
     let path: string;
@@ -36,20 +40,25 @@ const EachDetails = ({ title, value, icons }: any) => {
 }
 
 export default function TicketDesign() {
+    const IndividualFlight = useLandingPage((state: any) => state.IndividualFlight)
+    const SerachFlightData = useLandingPage((state: any) => state.SerachFlightData)
+    const customerData = UseLoginStore((state: any) => state.customerData)
+    console.log(customerData)
 
+    
     return (
         <div className='border rounded-2xl w-7/12 flex overflow-hidden'>
             <div className='px-6 py-8 pr-10 bg-[#EBF6F2] flex flex-col justify-between'>
                 <div>
-                    <h4 className='text-color font-semibold text-2xl'>12:00 pm </h4>
-                    <span className='text-base font-normal'>Newark(EWR)</span>
+                    <h4 className='text-color font-semibold text-2xl'>{convertTo12HourFormat(IndividualFlight[0].flightStartTime)}</h4>
+                    <span className='text-base font-normal'>{IndividualFlight[0].flightStartFrom}</span>
                 </div>
                 <div>
                     <IoAirplane style={{ fontSize: 42, transform: 'rotate(90deg)' }} />
                 </div>
                 <div>
-                    <h4 className='text-color font-semibold text-2xl'>12:00 pm </h4>
-                    <span className='text-base font-normal'>Newark(EWR)</span>
+                    <h4 className='text-color font-semibold text-2xl'>{convertTo12HourFormat(IndividualFlight[0].flightEndTime)}</h4>
+                    <span className='text-base font-normal'>{IndividualFlight[0].flightEndFrom}</span>
                 </div>
             </div>
             <div className='flex flex-col w-full'>
@@ -58,11 +67,12 @@ export default function TicketDesign() {
                     <div>
                         <User
                             as="button"
-                            name="James Doe"
+                            name={customerData.first_name || 'User'}
                             description="Boarding Pass N’123"
                             className="transition-transform text-color text-lg font-semibold"
                             avatarProps={{
-                                src: "https://i.pravatar.cc/150?u=a04258114e29026702d"
+                                className: 'w-10 h-10',
+                                src: "https://th.bing.com/th/id/OIP.b61rHwfyvldBI6kQRI78jgHaHa?w=266&h=200&c=7&r=0&o=5&dpr=1.3&pid=1.7",
                             }}
                         />
                     </div>
@@ -70,7 +80,7 @@ export default function TicketDesign() {
                 </div>
 
                 <div className='p-6 flex justify-between'>
-                    <EachDetails title={'Date'} value={'12-11-24'} icons={'date'} />
+                    <EachDetails title={'Date'} value={IndividualFlight[0].flightStartDate} icons={'date'} />
                     <EachDetails title={'Gate'} value={'A12'} icons={'gate'} />
                     <EachDetails title={'Flight time'} value={'12:30'} icons={'clock'} />
                     <EachDetails title={'Seat no.'} value={'128'} icons={'seat'} />
@@ -81,7 +91,7 @@ export default function TicketDesign() {
                         <h2 className='text-color text-3xl font-bold'>EK</h2>
                         <span>ABCD</span>
                     </div>
-                    <Image src={'/Images/Flight/barcode.svg'} alt={'barcode'} width={100} height={100} className='w-64 h-20'/>
+                    <Image src={'/Images/Flight/barcode.svg'} alt={'barcode'} width={100} height={100} className='w-64 h-20' />
                 </div>
             </div>
         </div>

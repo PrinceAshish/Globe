@@ -8,14 +8,64 @@ datasource db {
 }
 
 model User {
-  id            String   @id @default(uuid())
+  id            String          @id @default(uuid())
   first_name    String
   last_name     String
-  email         String   @unique
-  mobile_number String   @unique @db.VarChar(10)
+  email         String          @unique
+  mobile_number String          @unique @db.VarChar(10)
   password      String
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  FlightHistory FlightHistory[]
+  PaymentMethod PaymentMethod[]
+}
+
+model FlightHistory {
+  id            String   @id @default(uuid())
+  departureFrom String
+  landFrom      String
+  departureTime String
+  landingTime   String
+  flightName    String
+  travelDate    String
+  gateNo        String
+  seatNo        String
+  // Define the relationship with the User table
+  user          User     @relation(fields: [userId], references: [id])
+  userId        String
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
 
+model PaymentMethod {
+  id             String   @id @default(uuid())
+  cardNumber     String
+  cardHolderName String
+  cardCCV        String
+  cardValidThru  String
+  // Define the relationship with the User table
+  user           User     @relation(fields: [userId], references: [id])
+  userId         String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Flight {
+  id               String   @id @default(uuid())
+  flightName       String
+  flightNumber     String
+  flightReview     Float
+  flightStartFrom  String
+  flightEndFrom    String
+  flightStartDate  String
+  flightEndDate    String
+  flightStartTime  String
+  flightEndTime    String
+  flightTravelType String
+  flightPrice      Float
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
 // npx prisma generate
+// npx prisma migrate dev --name <MigrationName>

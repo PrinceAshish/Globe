@@ -3,7 +3,7 @@ import Image from "next/image"
 import { BiTrash } from "react-icons/bi";
 import { BsPlusCircleDotted } from "react-icons/bs";
 
-export const EachFlight = ({ title, value, icons }: any) => {
+export const EachFlight = ({tickets}: any) => {
     const EachDetails = ({ title, value, icons }: any) => {
         let path: string;
         switch (icons) {
@@ -35,6 +35,7 @@ export const EachFlight = ({ title, value, icons }: any) => {
             </div>
         )
     }
+    // console.log(tickets)
     return (
         <div className='grid grid-cols-4'>
             <div className="flex col-span-3">

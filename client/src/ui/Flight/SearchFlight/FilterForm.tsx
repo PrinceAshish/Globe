@@ -35,7 +35,7 @@ export default function FilterForm() {
   const handleSortByChange = (e: any, index: any) => {
     const updatedSortBy = [...formData.sort_by];
     updatedSortBy[index].ischecked = e;
-    setFormData((prevState) => ({ ...prevState, AirLines: updatedSortBy }));
+    setFormData((prevState) => ({ ...prevState, sort_by: updatedSortBy }));
   }
 
   const handleChange = (value:any,name:any)=>{

@@ -1,3 +1,4 @@
+import { UseLoginStore } from "@/ui/guest/Login/UseLoginStore"
 import { Button, Card, CardBody } from "@nextui-org/react"
 import { MdEdit } from "react-icons/md"
 
@@ -17,16 +18,17 @@ const EachRow = ({ title, value, isEdit }:any) => {
     )
 }
 export default function Account() {
+    const customerData = UseLoginStore((state: any) => state.customerData)
     return (
         <div className="mt-6">
             <h2 className="text-3xl font-bold text-black mb-3">Account</h2>
             <Card className="rounded-sm shadow-md">
                 <CardBody>
-                    <EachRow title={'Name'} value={'Jhon Doe'} isEdit />
-                    <EachRow title={'Email'} value={'john.doe@gmail.com'} isEdit />
+                    <EachRow title={'Name'} value={customerData.first_name + ' ' + customerData.last_name} isEdit />
+                    <EachRow title={'Email'} value={customerData.email} isEdit />
                     <EachRow title={'Password'} value={'******'} isEdit />
-                    <EachRow title={'Phone number'} value={'+91 9876543210'} isEdit />
-                    <EachRow title={'Address'} value={'St 32 main downtown, Los Angeles, California, USA'} isEdit />
+                    <EachRow title={'Phone number'} value={'+91 '+customerData.mobile_number } isEdit />
+                    <EachRow title={'Address'} value={customerData.address || '-----'} isEdit />
                 </CardBody>
             </Card>
         </div>
