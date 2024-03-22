@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { UseLoginStore } from './UseLoginStore'
 import { UseCustomerStore } from '@/ui/user/UseCustomerStore'
+import { useSession } from 'next-auth/react'
 
 const initialState = {
     email: '',

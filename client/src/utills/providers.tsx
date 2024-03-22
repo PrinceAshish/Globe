@@ -3,8 +3,8 @@
 import { NextUIProvider } from '@nextui-org/react'
 import { SessionProvider } from 'next-auth/react'
 
-export function Providers({ children }: { children: React.ReactNode }) {
-  const session:any = '';
+export function Providers({session, children }: { children: React.ReactNode,session:any }) {
+  // const session:any = '';
   return (
     <SessionProvider session={session}>
       <NextUIProvider>

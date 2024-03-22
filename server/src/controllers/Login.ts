@@ -23,8 +23,8 @@ const LogUserIn = async (req: CustomRequest, res: Response) => {
   if (!user || !(await bcrypt.compare(password, user.password))) {
     return sendApiResponse(res, 200, false, "Invalid credentials", {});
   }
-  req.session.userId = user.id;
-  console.log(req.session);
+  req.cookies.userId = user.id;
+  console.log(req.cookies);
   const token = jwt.sign({ userId: user?.id }, secret, {
     expiresIn: "7d",
   });
